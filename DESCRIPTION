@@ -1,11 +1,31 @@
 Package: coviduk
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Read data from the UK Government coronavirus API more easily
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Shane Jackson
+Maintainer: Shane Jackson <shane.jackson@gmx.co.uk>
+Description: Simplifies the process of extracting data from the official UK Government coronavirus dashboard
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    data.table,
+    dplyr,
+    httr,
+    glue,
+    jsonlite,
+    lubridate,
+    magrittr,
+    polite,
+    stats,
+    stringr,
+    tidyr,
+    lifecycle
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RdMacros: lifecycle
