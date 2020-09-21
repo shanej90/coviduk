@@ -1,19 +1,19 @@
 #' Create a dataframe of hospital admissions data, according to the specifications you set.
 #'
-#' Makes API call to UK Government coronavirus dashboard and collects data on admissions according to the parameters you set. Data will be by NHS region and only for English regions. Note only 1,000 results max returned and that throttling can be implemented if you make too many requests.
+#' Makes API call to UK Government coronavirus dashboard and collects data on admissions according to the parameters you set. Data will be by NHS region or nation. Note only 1,000 results max returned and that throttling can be implemented if you make too many requests.
 #'
-#' @param region Specify the region for which you want to get the data.
+#' @param region Specify the region/nation for which you want to get the data.
 #' @param start_date Specify the first date for which you wish to collect the data. ymd format.
 #' @param end_date Specify the last date for which you wish to collect the data. ymd format.
-#' @return A dataframe containing hospital admissions data by NHS region: new admissions and cumulative admissions. Only a maximum of 1,000 results will be returned.
+#' @return A dataframe containing hospital admissions data by NHS region or nation: new admissions and cumulative admissions. Only a maximum of 1,000 results will be returned.
 #' @export
 
 get_hospital_admissions <- function(region, start_date, end_date) {
 
   #error checking/validation-----------------------------------------
 
-  #valid nhs regions
-  valid_regions <- c("East of England", "London", "Midlands", "North East and Yorkshire", "North West", "South East", "South West")
+  #valid regions
+  valid_regions <- c("East of England", "London", "Midlands", "North East and Yorkshire", "North West", "South East", "South West", "Scotland", "Wales", "Northern Ireland", "England")
 
   #make sure valid NHS region is chosen
   if(!region %in% valid_regions) stop(glue::glue("`region` must be on of: {paste(valid_regions, collapse = ';')}"))
@@ -40,7 +40,7 @@ get_hospital_admissions <- function(region, start_date, end_date) {
   endpoint <- "https://api.coronavirus.data.gov.uk/v1/data"
 
   #area type
-  area_type <- "nhsRegion"
+  area_type <- ifelse(region %in% c("England", "Wales", "Northern Ireland", "Scotland"), "nation", "nhsRegion")
 
   #function to run the query for each registered date--------------------------
   call_api <- function(.date) {
@@ -63,8 +63,7 @@ get_hospital_admissions <- function(region, start_date, end_date) {
     #polite_get <- polite::politely(httr::GET, verbose = T)
 
     #call api and convert to appropriate format
-    result <- tryCatch(
-      httr::GET(
+    result <- httr::GET(
       url = endpoint,
       #convert queries into JSON format
       query = list(
@@ -72,7 +71,6 @@ get_hospital_admissions <- function(region, start_date, end_date) {
         structure = jsonlite::toJSON(structure_settings, auto_unbox = T)
         ),
       httr::timeout(10)
-    )
     )
 
     if(result$status_code >= 400) {

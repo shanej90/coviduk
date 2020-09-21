@@ -7,15 +7,15 @@
 get_hospital_admissions(region, start_date, end_date)
 }
 \arguments{
-\item{region}{Specify the region for which you want to get the data.}
+\item{region}{Specify the region/nation for which you want to get the data.}
 
 \item{start_date}{Specify the first date for which you wish to collect the data. ymd format.}
 
 \item{end_date}{Specify the last date for which you wish to collect the data. ymd format.}
 }
 \value{
-A dataframe containing hospital admissions data by NHS region: new admissions and cumulative admissions. Only a maximum of 1,000 results will be returned.
+A dataframe containing hospital admissions data by NHS region or nation: new admissions and cumulative admissions. Only a maximum of 1,000 results will be returned.
 }
 \description{
-Makes API call to UK Government coronavirus dashboard and collects data on admissions according to the parameters you set. Data will be by NHS region and only for English regions. Note only 1,000 results max returned and that throttling can be implemented if you make too many requests.
+Makes API call to UK Government coronavirus dashboard and collects data on admissions according to the parameters you set. Data will be by NHS region or nation. Note only 1,000 results max returned and that throttling can be implemented if you make too many requests.
 }
