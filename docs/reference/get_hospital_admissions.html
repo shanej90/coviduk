@@ -47,7 +47,7 @@
 
 
 <meta property="og:title" content="Create a dataframe of hospital admissions data, according to the specifications you set. — get_hospital_admissions" />
-<meta property="og:description" content="Makes API call to UK Government coronavirus dashboard and collects data on admissions according to the parameters you set. Data will be by NHS region and only for English regions. Note only 1,000 results max returned." />
+<meta property="og:description" content="Makes API call to UK Government coronavirus dashboard and collects data on admissions according to the parameters you set. Data will be by NHS region and only for English regions. Note only 1,000 results max returned and that throttling can be implemented if you make too many requests." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">coviduk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -117,7 +117,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Makes API call to UK Government coronavirus dashboard and collects data on admissions according to the parameters you set. Data will be by NHS region and only for English regions. Note only 1,000 results max returned.</p>
+    <p>Makes API call to UK Government coronavirus dashboard and collects data on admissions according to the parameters you set. Data will be by NHS region and only for English regions. Note only 1,000 results max returned and that throttling can be implemented if you make too many requests.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_hospital_admissions</span>(<span class='kw'>region</span>, <span class='kw'>start_date</span>, <span class='kw'>end_date</span>)</pre>

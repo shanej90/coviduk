@@ -1,7 +1,7 @@
 Package: coviduk
 Type: Package
 Title: Read data from the UK Government coronavirus API more easily
-Version: 0.1.0
+Version: 0.1.1
 Author: Shane Jackson
 Maintainer: Shane Jackson <shane.jackson@gmx.co.uk>
 Description: Simplifies the process of extracting data from the official UK Government coronavirus dashboard

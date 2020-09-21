@@ -30,6 +30,16 @@ testthat::test_that(
   )
 )
 
+#test min start date
+testthat::test_that(
+  "you can't set dates earlier than 2020-3-19",
+  expect_error(
+    coviduk::get_hospital_admissions("London", "2020-02-20", "2020-04-15"),
+    "Minimum start date is 2020-03-19",
+    fixed = T
+  )
+)
+
 #format--------------------------------
 
 #make sure you end up with a dataframe

@@ -41,9 +41,10 @@ admissions since records started.
 The paramters you input will create a query to send to the coronavirus
 dashboard API, saving you from having to type out the whole query.
 
-Note that if you try and run this through, say, lapply to get data for
-every region you might start running into errors caused by timeout
-issues etc.
+Note that you can/will be throttled if you make too many requests -
+you’ll get an error message explaining this if so. As such, better to
+keep the number of requests low and/or leave gaps to avoid being
+throttled.
 
 ## Example
 
