@@ -88,7 +88,7 @@ get_hospital_admissions <- function(region, start_date, end_date) {
       #remove unnecessary columns
       dplyr::select(-3) %>%
       #set sensible names
-      stats::setNames(c("date", "nhs_region", "new_admissions", "total_admissions"))
+      stats::setNames(c("date", "region", "new_admissions", "total_admissions"))
 
       }
 

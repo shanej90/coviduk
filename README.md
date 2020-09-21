@@ -38,8 +38,10 @@ region and date range. The results will be presented as a dataframe,
 stating the date, region and number of new and cumulative/total
 admissions since records started.
 
-The paramters you input will create a query to send to the coronavirus
-dashboard API, saving you from having to type out the whole query.
+The parameters you input will create a query to send to the coronavirus
+dashboard API, saving you from having to type out the whole query. For
+regions you can select any of the four UK nations, or the English NHS
+regions.
 
 Note that you can/will be throttled if you make too many requests -
 you’ll get an error message explaining this if so. As such, better to
