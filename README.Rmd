@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 The goal of coviduk is to make it easier to get data out of the official [UK SARS-CoV-2 dashboard](https://coronavirus.data.gov.uk/). It does this by wrapping up the API calls in simpler functions, reducing the need to set various parameters manually and reduce repetitive code.
 
-Currently the package only handles hospital admissions data (new daily admissions and cumulative totals), but a more expansive range of data will be built in, at least until the government's developers release the R package promised in their [developer's guide](https://coronavirus.data.gov.uk/developers-guide).
+Currently the package only handles hospital admissions data (new daily admissions and cumulative totals) and case numbers (by reported and specimen date), but a more expansive range of data will be built in, at least until the government's developers release the R package promised in their [developer's guide](https://coronavirus.data.gov.uk/developers-guide).
 
 ## Installation
 
@@ -33,7 +33,7 @@ devtools::install_github("shanej90/coviduk", ref = "main")
 ```
 
 ## How it works
-As there's only one in-use function for now:
+As there's only two in-use functions for now:
 
 `get_hospital_admissions` will call hospitilisation data for a chosen region and date range. The results will be presented as a dataframe, stating the date, region and number of new and cumulative/total admissions since records started.
 
@@ -46,12 +46,22 @@ Note that you can/will be throttled if you make too many requests - you'll get a
 
 This is a basic example which shows how you can get hold of the hospital admissions data for a specific timeframe.
 
-```{r example}
+```{r hosp-example}
 library(coviduk)
 
-example <- get_hospital_admissions("London", "2020-09-01", "2020-09-15")
+example <- coviduk::get_hospital_admissions("London", "2020-09-01", "2020-09-15")
 
 head(example)
 
 
+```
+
+And this example shows how you can get case data - also highlighting that some data isn't available at all available area structure levels.
+
+```{r case-example}
+library(coviduk)
+
+example2 <- coviduk::get_case_data("ltla", "Exeter", "2020-09-01", "2020-09-15")
+
+head(example2)
 ```

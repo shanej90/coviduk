@@ -4,10 +4,10 @@
 \alias{get_hospital_admissions}
 \title{Create a dataframe of hospital admissions data, according to the specifications you set.}
 \usage{
-get_hospital_admissions(region, start_date, end_date)
+get_hospital_admissions(area_name, start_date, end_date)
 }
 \arguments{
-\item{region}{Specify the region/nation for which you want to get the data.}
+\item{area_name}{Specify the region/nation (by name, not code) for which you want to get the data.}
 
 \item{start_date}{Specify the first date for which you wish to collect the data. ymd format.}
 

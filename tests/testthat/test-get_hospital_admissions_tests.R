@@ -5,7 +5,7 @@ testthat::test_that(
   "region outside list throws error",
   expect_error(
     coviduk::get_hospital_admissions("hello", "2020-05-20", "2020-06-15"),
-    "`region` must be on of: East of England;London;Midlands;North East and Yorkshire;North West;South East;South West",
+    "`area` must be on of: East of England;London;Midlands;North East and Yorkshire;North West;South East;South West",
     fixed = T
   )
 )

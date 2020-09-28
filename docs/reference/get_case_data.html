@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • coviduk</title>
+<title>Create a dataframe of case data, according to the specifications you set. — get_case_data • coviduk</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,8 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Create a dataframe of case data, according to the specifications you set. — get_case_data" />
+<meta property="og:description" content="Makes API call to UK Government coronavirus dashboard and collects data on cases according to the parameters you set. Data will be by nation, region or local authority (upper or lower tier). Note only 1,000 results max returned and that throttling can be implemented if you make too many requests." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -66,7 +67,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -113,47 +114,48 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      
+    <h1>Create a dataframe of case data, according to the specifications you set.</h1>
+    
+    <div class="hidden name"><code>get_case_data.Rd</code></div>
     </div>
 
-    <div id="coviduk-020" class="section level1">
-<h1 class="page-header" data-toc-text="0.2.0">
-<a href="#coviduk-020" class="anchor"></a>coviduk 0.2.0</h1>
-<ul>
-<li>Added new function - get case data by reported and specimen date.</li>
-<li>Updated functions to pull area code alongside other data.</li>
-</ul>
-</div>
-    <div id="coviduk-012" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.2">
-<a href="#coviduk-012" class="anchor"></a>coviduk 0.1.2</h1>
-<ul>
-<li>Added ability to pull UK nations data.</li>
-</ul>
-</div>
-    <div id="covid-011" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.1">
-<a href="#covid-011" class="anchor"></a>covid 0.1.1</h1>
-<ul>
-<li>Improved error handling and update of documentation to highlight potential 429 responses (too many requests).</li>
-</ul>
-</div>
-    <div id="covid-010" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.0">
-<a href="#covid-010" class="anchor"></a>covid 0.1.0</h1>
-<ul>
-<li>Launched with single function to pull hospital admissions for English NHS regions.</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Makes API call to UK Government coronavirus dashboard and collects data on cases according to the parameters you set. Data will be by nation, region or local authority (upper or lower tier). Note only 1,000 results max returned and that throttling can be implemented if you make too many requests.</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>get_case_data</span><span class='op'>(</span><span class='va'>area_type</span>, <span class='va'>area_name</span>, <span class='va'>start_date</span>, <span class='va'>end_date</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>area_type</th>
+      <td><p>Specify the name of the area for which you want to get the data.</p></td>
+    </tr>
+    <tr>
+      <th>area_name</th>
+      <td><p>Specify the area (by name, not code) for which you would like to pull the data.</p></td>
+    </tr>
+    <tr>
+      <th>start_date</th>
+      <td><p>Specify the first date for which you wish to collect the data. ymd format.</p></td>
+    </tr>
+    <tr>
+      <th>end_date</th>
+      <td><p>Specify the last date for which you wish to collect the data. ymd format.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A dataframe containing case data by the specified area type, by date reported and of specimen. Note not all variables are available for all area types.</p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 

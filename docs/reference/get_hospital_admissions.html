@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">coviduk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -123,14 +123,14 @@
     <p>Makes API call to UK Government coronavirus dashboard and collects data on admissions according to the parameters you set. Data will be by NHS region or nation. Note only 1,000 results max returned and that throttling can be implemented if you make too many requests.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_hospital_admissions</span>(<span class='kw'>region</span>, <span class='kw'>start_date</span>, <span class='kw'>end_date</span>)</pre>
+    <pre class="usage"><span class='fu'>get_hospital_admissions</span><span class='op'>(</span><span class='va'>area_name</span>, <span class='va'>start_date</span>, <span class='va'>end_date</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>region</th>
-      <td><p>Specify the region/nation for which you want to get the data.</p></td>
+      <th>area_name</th>
+      <td><p>Specify the region/nation (by name, not code) for which you want to get the data.</p></td>
     </tr>
     <tr>
       <th>start_date</th>
@@ -161,7 +161,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
