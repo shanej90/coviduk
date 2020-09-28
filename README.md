@@ -34,7 +34,7 @@ devtools::install_github("shanej90/coviduk", ref = "main")
 
 As there’s only two in-use functions for now:
 
-`get_hospital_admissions` will call hospitilisation data for a chosen
+`get_hospital_admissions()` will call hospitilisation data for a chosen
 region and date range. The results will be presented as a dataframe,
 stating the date, region and number of new and cumulative/total
 admissions since records started.
@@ -43,6 +43,11 @@ The parameters you input will create a query to send to the coronavirus
 dashboard API, saving you from having to type out the whole query. For
 regions you can select any of the four UK nations, or the English NHS
 regions.
+
+`get_case_data()` draws on data of confirmed cases, both by reporting
+date and date the test specimen was taken. Note these two variables are
+available at different ‘levels’ of UK areas (so what is available for
+natons may not be available for local authorities and vice versa).
 
 Note that you can/will be throttled if you make too many requests -
 you’ll get an error message explaining this if so. As such, better to
