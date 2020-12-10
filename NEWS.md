@@ -1,3 +1,6 @@
+# coviduk 0.3.0
+* Added new function - get deaths data by either reporting date or date of death.
+
 # coviduk 0.2.0
 
 * Added new function - get case data by reported and specimen date.

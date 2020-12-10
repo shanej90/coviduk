@@ -2,5 +2,6 @@
 
 export("%>%")
 export(get_case_data)
+export(get_deaths_data)
 export(get_hospital_admissions)
 importFrom(magrittr,"%>%")

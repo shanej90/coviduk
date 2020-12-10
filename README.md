@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <img src='man/figures/logo.png' align="right" height="139" />
 <!-- badges: end -->
 
@@ -32,7 +32,8 @@ devtools::install_github("shanej90/coviduk", ref = "main")
 
 ## How it works
 
-As there’s only two in-use functions for now:
+There are three in use functions now. Brief details and examples below,
+but there is a [reference guide](https://shanej90.github.io/coviduk/).
 
 `get_hospital_admissions()` will call hospitilisation data for a chosen
 region and date range. The results will be presented as a dataframe,
@@ -53,6 +54,13 @@ Note that you can/will be throttled if you make too many requests -
 you’ll get an error message explaining this if so. As such, better to
 keep the number of requests low and/or leave gaps to avoid being
 throttled.
+
+`get_deaths_data()` draws data on deaths within 28 days of a positive
+test, by both date reported and date of death. I intend to bring in the
+weekly Office for National Statistics data on death certificates
+mentioning the disease, which I’d take as a truer measure (although they
+are only by date of registration rather than actual death,
+unfortunately).
 
 ## Example
 
@@ -76,6 +84,8 @@ head(example)
 
 And this example shows how you can get case data - also highlighting
 that some data isn’t available at all available area structure levels.
+Deaths data will be very similar but obviously with deaths, instead of
+case, data.
 
 ``` r
 library(coviduk)
@@ -85,16 +95,16 @@ example2 <- coviduk::get_case_data("ltla", "Exeter", "2020-09-01", "2020-09-15")
 head(example2)
 #>         date area_code area_name reported_new reported_total specimen_new
 #> 1 2020-09-01 E07000041    Exeter            0             NA            1
-#> 2 2020-09-02 E07000041    Exeter            0             NA            0
+#> 2 2020-09-02 E07000041    Exeter            0             NA            2
 #> 3 2020-09-03 E07000041    Exeter            1             NA            5
-#> 4 2020-09-04 E07000041    Exeter            0             NA            6
+#> 4 2020-09-04 E07000041    Exeter            0             NA            5
 #> 5 2020-09-05 E07000041    Exeter            3             NA            1
-#> 6 2020-09-06 E07000041    Exeter            2             NA            1
+#> 6 2020-09-06 E07000041    Exeter            2             NA            2
 #>   specimen_total
-#> 1            274
-#> 2            274
-#> 3            279
-#> 4            285
-#> 5            286
-#> 6            287
+#> 1            275
+#> 2            277
+#> 3            282
+#> 4            287
+#> 5            288
+#> 6            290
 ```

@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 # coviduk
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <img src='man/figures/logo.png' align="right" height="139" />
 <!-- badges: end -->
 
@@ -33,7 +33,7 @@ devtools::install_github("shanej90/coviduk", ref = "main")
 ```
 
 ## How it works
-As there's only two in-use functions for now:
+There are three in use functions now. Brief details and examples below, but there is a [reference guide](https://shanej90.github.io/coviduk/).
 
 `get_hospital_admissions()` will call hospitilisation data for a chosen region and date range. The results will be presented as a dataframe, stating the date, region and number of new and cumulative/total admissions since records started.
 
@@ -42,6 +42,8 @@ The parameters you input will create a query to send to the coronavirus dashboar
 `get_case_data()` draws on data of confirmed cases, both by reporting date and date the test specimen was taken. Note these two variables are available at different 'levels' of UK areas (so what is available for natons may not be available for local authorities and vice versa).
 
 Note that you can/will be throttled if you make too many requests - you'll get an error message explaining this if so. As such, better to keep the number of requests low and/or leave gaps to avoid being throttled.
+
+`get_deaths_data()` draws data on deaths within 28 days of a positive test, by both date reported and date of death. I intend to bring in the weekly Office for National Statistics data on death certificates mentioning the disease, which I'd take as a truer measure (although they are only by date of registration rather than actual death, unfortunately).
 
 
 ## Example
@@ -58,7 +60,7 @@ head(example)
 
 ```
 
-And this example shows how you can get case data - also highlighting that some data isn't available at all available area structure levels.
+And this example shows how you can get case data - also highlighting that some data isn't available at all available area structure levels. Deaths data will be very similar but obviously with deaths, instead of case, data.
 
 ```{r case-example}
 library(coviduk)
